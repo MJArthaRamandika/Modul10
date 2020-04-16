@@ -4,7 +4,7 @@ import * as firebase from "firebase";
 
 const Join = () =>{
     const [email, setEmail] = useState("");
-    const [Password, setPassword] = useState("");
+    const [password, setPassword] = useState("");
     const [error, setErrors] = useState("");
 
     const Auth = useContext(AuthContext);
@@ -12,7 +12,7 @@ const Join = () =>{
         e.preventDefault();
         firebase
             .auth()
-            .createUserWithEmailAndPassword(email, Password)
+            .createUserWithEmailAndPassword(email, password)
             .then(res => {
                 if(res.user) Auth.setLoggedIn(true);
             })
@@ -34,10 +34,10 @@ const Join = () =>{
                 />
                 <input
                     onChange={e => setPassword(e.target.value)}
-                    name="Password"
-                    value={Password}
-                    type="Password"
-                    placeholder="Password"
+                    name="password"
+                    value={password}
+                    type="password"
+                    placeholder="password"
                 />
                 <hr />
                 <button class="googleBtn" type="button">
